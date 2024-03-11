@@ -13,9 +13,9 @@ export class PasswordGradePipe implements PipeTransform {
       return PasswordGradeValue.Short;
     }
 
-    const hasLetters = /[a-z]/i.test(value);
+    const hasLetters = /[\p{Alphabetic}а-я]/i.test(value);
     const hasNumbers = /[0-9]/.test(value);
-    const hasSymbols = /[^a-z0-9]/i.test(value);
+    const hasSymbols = /[^\p{Alphabetic}0-9а-я]/i.test(value);
 
     if (hasLetters && hasNumbers && hasSymbols) {
       return PasswordGradeValue.Strong;
