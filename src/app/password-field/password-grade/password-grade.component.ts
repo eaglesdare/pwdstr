@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
-import { PasswordGradeValue } from './password-grade-value.enum.';
+import { PasswordGradeValue } from './password-grade-value.enum';
 
 @Component({
   selector: 'password-grade',

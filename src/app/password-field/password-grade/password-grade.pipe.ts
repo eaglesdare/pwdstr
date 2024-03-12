@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PasswordGradeValue } from './password-grade-value.enum.';
+import { PasswordGradeValue } from './password-grade-value.enum';
 
 @Pipe({
   name: 'passwordGrade'
@@ -13,9 +13,9 @@ export class PasswordGradePipe implements PipeTransform {
       return PasswordGradeValue.Short;
     }
 
-    const hasLetters = /[\p{Alphabetic}а-я]/i.test(value);
+    const hasLetters = /[\p{Alphabetic}а-я]/iu.test(value);
     const hasNumbers = /[0-9]/.test(value);
-    const hasSymbols = /[^\p{Alphabetic}0-9а-я]/i.test(value);
+    const hasSymbols = /[^\p{Alphabetic}0-9а-я]/iu.test(value);
 
     if (hasLetters && hasNumbers && hasSymbols) {
       return PasswordGradeValue.Strong;
